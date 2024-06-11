@@ -6,7 +6,6 @@ jobs:
   steps:
   - script: |
       dotnet restore  # Restore dependencies
-      dotnet build    # Build the project
     displayName: 'Restore and Build'
 
 
