@@ -5,12 +5,6 @@ pool:
   name: 'Isaac'
 
 steps:
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '8.x'  # Specify .NET 8 version here
-      installationPath: $(Agent.ToolsDirectory)/dotnet
-
   - task: DotNetCoreCLI@2
     inputs:
       command: 'restore'
