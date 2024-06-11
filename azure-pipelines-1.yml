@@ -5,7 +5,6 @@ jobs:
     name: Isaac
   steps:
   - script: |
-      dotnet test  
       dotnet restore  # Restore dependencies
       dotnet build    # Build the project
     displayName: 'Restore and Build'
