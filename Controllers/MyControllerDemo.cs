@@ -10,7 +10,7 @@ namespace MyApp.Namespace
         [HttpGet]
         public ActionResult GetMyName()
         {
-            return Ok("Isaac Mwesigwa");
+            return Ok("IsaacMwesigwa");
         }
     }
 }
