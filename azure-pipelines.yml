@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'MyPool'
+  vmImage: 'Isaac'
 
 jobs:
 - job: Build
