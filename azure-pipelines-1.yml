@@ -1,11 +1,28 @@
-jobs:
-- job: Build
-  displayName: 'Build job'
-  pool:
-    name: Isaac
-  steps:
-  - script: |
-      dotnet restore  # Restore dependencies
-    displayName: 'Restore and Build'
+trigger:
+  - main
 
+pool:
+  name: 'Isaac'
 
+steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '8.x'  # Specify .NET 8 version here
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      projects: '**/*.csproj'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
+      projects: '**/*.csproj'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'test'
+      projects: '**/*Tests.csproj'
+      arguments: '--configuration $(BuildConfiguration)'
